@@ -169,46 +169,83 @@
 # print(content)
 
 
-class Car:
-    def __init__(self, name, max_speed):
-        # Encapsulated attributes (private)
-        self.__name = name
-        self.__max_speed = max_speed
-        self.__current_speed = 0
+# class Car:
+#     def __init__(self, name, max_speed):
+#         # Encapsulated attributes (private)
+#         self.__name = name
+#         self.__max_speed = max_speed
+#         self.__current_speed = 0
 
-    # Public method to set the car's speed (setter)
-    def set_speed(self, speed):
-        if 0 <= speed <= self.__max_speed:
-            self.__current_speed = speed
-            print(f"The {self.__name}'s speed is now {self.__current_speed} km/h.")
-        else:
-            print(f"Error: Speed must be between 0 and {self.__max_speed} km/h.")
+#     # Public method to set the car's speed (setter)
+#     def set_speed(self, speed):
+#         if 0 <= speed <= self.__max_speed:
+#             self.__current_speed = speed
+#             print(f"The {self.__name}'s speed is now {self.__current_speed} km/h.")
+#         else:
+#             print(f"Error: Speed must be between 0 and {self.__max_speed} km/h.")
 
-    # Public method to get the current speed (getter)
-    def get_speed(self):
-        return self.__current_speed
+#     # Public method to get the current speed (getter)
+#     def get_speed(self):
+#         return self.__current_speed
         
-    # Public method to get the car's name (getter)
-    def get_name(self):
-        return self.__name
+#     # Public method to get the car's name (getter)
+#     def get_name(self):
+#         return self.__name
 
-# --- Main part of the script ---
-if __name__ == "__main__":
-    # Create an instance of the Car class
-    my_car = Car("Sedan", 180)
+# # --- Main part of the script ---
+# if __name__ == "__main__":
+#     # Create an instance of the Car class
+#     my_car = Car("Sedan", 180)
 
-    print(f"Car Name: {my_car.get_name()}")
+#     print(f"Car Name: {my_car.get_name()}")
     
-    # Use the public method to change the speed
-    my_car.set_speed(90)  # This will work
-    my_car.set_speed(200) # This will show an error
+#     # Use the public method to change the speed
+#     my_car.set_speed(90)  # This will work
+#     my_car.set_speed(200) # This will show an error
 
-    # Now, let's try to access the private attribute directly
-    try:
-        print(my_car.__current_speed)
-    except AttributeError as e:
-        print(f"\nDirect access failed: {e}")
-        print("This shows encapsulation is working!")
+#     # Now, let's try to access the private attribute directly
+#     try:
+#         print(my_car.__current_speed)
+#     except AttributeError as e:
+#         print(f"\nDirect access failed: {e}")
+#         print("This shows encapsulation is working!")
 
-    # The correct way to get the speed is using the getter method
-    print(f"Current speed fetched via getter: {my_car.get_speed()} km/h")
+#     # The correct way to get the speed is using the getter method
+#     print(f"Current speed fetched via getter: {my_car.get_speed()} km/h")
+
+class Backpack:
+    def __init__(self):
+        # This list of items is "private" and safe inside the backpack.
+        self.__items = []
+
+    # This is a "public" tool (method) to add an item.
+    def add_item(self, item):
+        print(f"Adding '{item}' to the backpack.")
+        self.__items.append(item)
+
+    # This is a "public" tool to see what's inside.
+    def show_items(self):
+        if not self.__items:
+            print("The backpack is empty.")
+        else:
+            print("The backpack contains:")
+            for item in self.__items:
+                print(f"- {item}")
+
+# --- Let's use the backpack ---
+if __name__ == "__main__":
+    my_backpack = Backpack()
+
+    # We use the public methods to interact with the backpack.
+    my_backpack.add_item("Math Book")
+    my_backpack.add_item("Lunch Box")
+    my_backpack.add_item("Pencil")
+    
+    print("-" * 20) # A separator line
+
+    # See what's inside using the provided method.
+    my_backpack.show_items()
+
+    # If you try to access the items directly, you'll get an error.
+    # This line would fail: print(my_backpack.__items)
+    # This protects the data from being changed by accident!
