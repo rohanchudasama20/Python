@@ -72,6 +72,8 @@ import matplotlib.pyplot as plt
 # plt.show()
 
 
+import pandas as pd
+import matplotlib.pyplot as plt
 x=range(1,8)
 y=[2,7,6,9,4,5,1]
 plt.fill_between(x,y)

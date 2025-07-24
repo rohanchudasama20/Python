@@ -249,3 +249,4 @@ if __name__ == "__main__":
     # If you try to access the items directly, you'll get an error.
     # This line would fail: print(my_backpack.__items)
     # This protects the data from being changed by accident!
+
