@@ -250,3 +250,10 @@ if __name__ == "__main__":
     # This line would fail: print(my_backpack.__items)
     # This protects the data from being changed by accident!
 
+import pandas as pd
+import matplotlib.pyplot as plt
+x=range(1,8)
+y=[2,7,6,9,4,5,1]
+plt.fill_between(x,y)
+plt.title('area plot')
+plt.show()
