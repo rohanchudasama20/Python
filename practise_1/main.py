@@ -213,47 +213,68 @@
 #     # The correct way to get the speed is using the getter method
 #     print(f"Current speed fetched via getter: {my_car.get_speed()} km/h")
 
-class Backpack:
-    def __init__(self):
-        # This list of items is "private" and safe inside the backpack.
-        self.__items = []
+# class Backpack:
+#     def __init__(self):
+#         # This list of items is "private" and safe inside the backpack.
+#         self.__items = []
 
-    # This is a "public" tool (method) to add an item.
-    def add_item(self, item):
-        print(f"Adding '{item}' to the backpack.")
-        self.__items.append(item)
+#     # This is a "public" tool (method) to add an item.
+#     def add_item(self, item):
+#         print(f"Adding '{item}' to the backpack.")
+#         self.__items.append(item)
 
-    # This is a "public" tool to see what's inside.
-    def show_items(self):
-        if not self.__items:
-            print("The backpack is empty.")
-        else:
-            print("The backpack contains:")
-            for item in self.__items:
-                print(f"- {item}")
+#     # This is a "public" tool to see what's inside.
+#     def show_items(self):
+#         if not self.__items:
+#             print("The backpack is empty.")
+#         else:
+#             print("The backpack contains:")
+#             for item in self.__items:
+#                 print(f"- {item}")
 
-# --- Let's use the backpack ---
-if __name__ == "__main__":
-    my_backpack = Backpack()
+# # --- Let's use the backpack ---
+# if __name__ == "__main__":
+#     my_backpack = Backpack()
 
-    # We use the public methods to interact with the backpack.
-    my_backpack.add_item("Math Book")
-    my_backpack.add_item("Lunch Box")
-    my_backpack.add_item("Pencil")
+#     # We use the public methods to interact with the backpack.
+#     my_backpack.add_item("Math Book")
+#     my_backpack.add_item("Lunch Box")
+#     my_backpack.add_item("Pencil")
     
-    print("-" * 20) # A separator line
+#     print("-" * 20) # A separator line
 
-    # See what's inside using the provided method.
-    my_backpack.show_items()
+#     # See what's inside using the provided method.
+#     my_backpack.show_items()
 
     # If you try to access the items directly, you'll get an error.
     # This line would fail: print(my_backpack.__items)
     # This protects the data from being changed by accident!
 
-import pandas as pd
-import matplotlib.pyplot as plt
-x=range(1,8)
-y=[2,7,6,9,4,5,1]
-plt.fill_between(x,y)
-plt.title('area plot')
-plt.show()
+# import pandas as pd
+# import matplotlib.pyplot as plt
+# x=range(1,8)
+# y=[2,7,6,9,4,5,1]
+# plt.fill_between(x,y)
+# plt.title('area plot')
+# plt.show()
+
+def reverse_list(head: ListNode) -> ListNode:
+    prev = None
+    current = head
+    
+    while current:
+        next_temp = current.next  # Store the next node
+        current.next = prev       # Reverse the current node's pointer
+        prev = current            # Move prev one step forward
+        current = next_temp       # Move current one step forward
+        
+    return prev # `prev` is now the new head
+
+# --- Example ---
+ll = create_linked_list([1, 2,12, 6, 5])
+print("Original:")
+print_linked_list(ll)
+
+reversed_ll = reverse_list(ll)
+print("\nReversed:")
+print_linked_list(reversed_ll)
