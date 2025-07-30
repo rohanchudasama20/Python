@@ -33,10 +33,10 @@
 # # n1,n2,n3=[int(no) for no in input('Enter three values by giving space in between: ').split(',')]
 # # print('The sum of three values: ',n1+n2+n3)
 
-# # Use of eval()
-# # a,b=7,16
-# # ans=eval('a+b')
-# # print(ans)
+# Use of eval() using eval
+a,b=15,16
+ans=eval('a+b')
+print(ans)
 
 # # a,b=7,16
 # # ans=eval(input('Enter an expression'))

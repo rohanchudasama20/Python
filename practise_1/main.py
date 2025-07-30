@@ -271,7 +271,7 @@ def reverse_list(head: ListNode) -> ListNode:
     return prev # `prev` is now the new head
 
 # --- Example ---
-ll = create_linked_list([1, 2,12, 6, 5])
+ll = create_linked_list([1, 2,12s, 6, 5])
 print("Original:")
 print_linked_list(ll)
 
